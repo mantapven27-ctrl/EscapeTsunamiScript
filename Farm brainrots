@@ -1,0 +1,17 @@
+local player = game.Players.LocalPlayer
+local char = player.Character or player.CharacterAdded:Wait()
+local hrp = char:WaitForChild("HumanoidRootPart")
+
+-- Auto farm loop
+while true do
+    wait(0.5)
+
+    for _, item in pairs(workspace:GetDescendants()) do
+        if item.Name == "Brainrot" or item.Name == "Coin" then
+            if item:IsA("BasePart") then
+                hrp.CFrame = item.CFrame + Vector3.new(0,3,0)
+                wait(0.2)
+            end
+        end
+    end
+end
